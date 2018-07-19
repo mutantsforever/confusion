@@ -36,6 +36,20 @@ class Menu extends Component{
             );
     }
 
+    renderComments(comments) {
+        if(comments != null)
+            return(
+                <div>
+                    <Dishdetail selectedDish={this.state.selectedDish.comments[1]} />
+                </div>    
+
+            );
+        else
+            return(
+                <div></div>
+            );
+    }
+
     render() {
 
         const menu = this.props.dishes.map((dish) => {
@@ -46,6 +60,16 @@ class Menu extends Component{
                     <CardImgOverlay>
                         <CardTitle>{dish.name}</CardTitle>
                     </CardImgOverlay>
+                </Card>
+                </div>
+            )
+        });
+
+        const comm = this.props.dishes.id.map((comments) => {
+            return (
+                <div key={comments.id} className="col-12 col-md-5 m-1">
+                <Card onClick={() => this.onDishSelect(comments)}>
+                    
                 </Card>
                 </div>
             )
