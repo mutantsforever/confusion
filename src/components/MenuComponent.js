@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Dishdetail from './DishdetailComponent';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
 
 class Menu extends Component{
@@ -7,9 +6,6 @@ class Menu extends Component{
     constructor(props) {
         super(props);
 
-        this.state = {
-            selectedDish: null
-        }
         console.log('Menu Component constructor is invoked')
     }
 
@@ -18,15 +14,11 @@ class Menu extends Component{
 
     } 
 
-    onDishSelect(dish) {
-        this.setState({ selectedDish: dish });
-    }
-
     renderDish(dish) {
         if(dish != null)
             return(
                 <div>
-                    <Dishdetail selectedDish={this.state.selectedDish} />
+                    {/* <Dishdetail selectedDish={this.state.selectedDish} /> */}
                 </div>    
 
             );
@@ -36,26 +28,26 @@ class Menu extends Component{
             );
     }
 
-    renderComments(comments) {
-        if(comments != null)
-            return(
-                <div>
-                    <Dishdetail selectedDish={this.state.selectedDish.comments[1]} />
-                </div>    
+    // renderComments(comments) {
+    //     if(comments != null)
+    //         return(
+    //             <div>
+    //                 <Dishdetail selectedDish={this.state.selectedDish.comments[1]} />
+    //             </div>    
 
-            );
-        else
-            return(
-                <div></div>
-            );
-    }
+    //         );
+    //     else
+    //         return(
+    //             <div></div>
+    //         );
+    // }
 
     render() {
 
         const menu = this.props.dishes.map((dish) => {
             return (
                 <div key={dish.id} className="col-12 col-md-5 m-1">
-                <Card onClick={() => this.onDishSelect(dish)}>
+                <Card onClick={() => this.props.onClick(dish.id)}>
                     <CardImg width="100%" src={dish.image} alt={dish.name} />
                     <CardImgOverlay>
                         <CardTitle>{dish.name}</CardTitle>
@@ -65,15 +57,6 @@ class Menu extends Component{
             )
         });
 
-        const comm = this.props.dishes.id.map((comments) => {
-            return (
-                <div key={comments.id} className="col-12 col-md-5 m-1">
-                <Card onClick={() => this.onDishSelect(comments)}>
-                    
-                </Card>
-                </div>
-            )
-        });
         console.log('Menu Component render is invoked')
 
         return(
@@ -81,11 +64,11 @@ class Menu extends Component{
                 <div className="row">
                     {menu}
                 </div>
-                <div className="row">
+                {/* <div className="row">
                 <div  className="col-12 col-md-5 m-1">
                     {this.renderDish(this.state.selectedDish)}
                   </div>
-                </div>
+                </div> */}
             </div>
 
         );
