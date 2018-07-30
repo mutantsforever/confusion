@@ -17,7 +17,7 @@ class Dishdetail extends Component{
                       <CardTitle>{Dishdet.name}</CardTitle>
                       <CardText>{Dishdet.description}</CardText>
                     </CardBody>
-                </Card>
+            </Card>
         );
     }
 }
