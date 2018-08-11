@@ -1,4 +1,6 @@
 - [https://react.rocks/tag/CRUD?show=40]
+- https://www.mongodb.com/blog/post/the-modern-application-stack-part-5-using-reactjs-es6-and-jsx-to-build-a-ui-the-rise-of-mern
+- https://www.djamware.com/post/59faec0a80aca7739224ee1f/building-crud-web-application-using-mern-stack
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
