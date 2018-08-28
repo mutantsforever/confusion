@@ -15,10 +15,10 @@ class Main extends Component {
       selectedDish: null
     };
   }
-  
+
   onDishSelect(dishId) {
     this.setState({ selectedDish: dishId });
-}
+  }
 
   render() {
     return (
@@ -28,10 +28,11 @@ class Main extends Component {
             <NavbarBrand href="/">Hello React </NavbarBrand>
           </div>
         </Navbar>
-        <Menu dishes={this.state.dishes} 
-            onClick={(dishId) => this.onDishSelect(dishId)} />
+        
+        <Menu dishes={this.state.dishes}
+          onClick={(dishId) => this.onDishSelect(dishId)} />
         <Dishdetail
-            dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]} />
+          dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]} />
       </div>
     );
   }
